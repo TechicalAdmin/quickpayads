@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Plan;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -40,6 +41,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $plans = Plan::all();
+        return view('auth.register')->with('plans',$plans);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,11 +56,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'account_type' => ['required', 'string', 'max:255'],
-            'user_name' => ['required', 'string', 'max:255', 'unique:users'],
+            'plan_id' => ['required', 'integer'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'jazz_cash_no' => ['required', 'string', 'max:255'],
-            'cinic_no' => ['required', 'string', 'max:255'],
+            'cnic' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
@@ -66,21 +73,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
-            'account_type' => $data['account_type'],
+            'plan_id' => $data['plan_id'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            'user_name' => $data['user_name'],
-            'refers_id' => $data['refers_id'],
-            'user_earning' => $data['user_earning'],
-            'earning_of_refers' => $data['earning_of_refers'],
+            'username' => $data['username'],
+            'refer_id' => $data['refers_id'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'cinic_no' => $data['cinic_no'],
+            'cnic' => $data['cnic'],
             'jazz_cash_no' => $data['jazz_cash_no'],
             'country' => $data['country'],
             'state' => $data['state'],
             'city' => $data['city'],
         ]);
+    }
+    public function test()
+    {
+        return view('test');
     }
 }

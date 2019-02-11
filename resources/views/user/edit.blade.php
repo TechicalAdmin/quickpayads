@@ -1,4 +1,4 @@
-@extends('edit_dashboard')
+@extends('dashboard')
 @section('right_panel')
     <div class="card">
     <div class="card-header bg-success">{{ __('Edit Profile') }}</div>

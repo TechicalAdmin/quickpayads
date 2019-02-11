@@ -96,9 +96,9 @@ class UserController extends Controller
         $user  = User::find($id);
         return view('user.cashwithdraw')->with('user',$user);
     }
-    public function addsClick($id)
-    {
-        $user = User::find($id);
-        return view('user.adds')->with('user',$user);
-    }
+//    public function addsClick($id)
+//    {
+//        $user = User::find($id);
+//        return view('user.adds')->with('user',$user);
+//    }
 }

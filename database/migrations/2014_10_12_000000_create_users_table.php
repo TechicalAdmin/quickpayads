@@ -15,22 +15,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('account_type');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('user_name');
-            $table->string('refers_id')->nullable();
-            $table->string('user_earning')->nullable();
-            $table->string('earning_of_refers')->nullable();
-            $table->string('account_balance')->nullable();
+            $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('cinic_no');
-            $table->string('jazz_cash_no');
+            $table->string('cnic', '32');
+            $table->string('jazz_cash_no', '32');
             $table->string('country');
             $table->string('state');
             $table->string('city');
+            $table->integer('plan_id')->unsigned()->nullable();
+            $table->string('refer_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

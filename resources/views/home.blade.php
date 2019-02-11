@@ -1,6 +1,5 @@
-@extends('edit_dashboard')
+@extends('dashboard')
 @section('right_panel')
-
         <div class="form-group">
             <section class="disabled">
                 <div class="form-group row">
@@ -100,7 +99,7 @@
                     </div>
                 </div>
                 <!--/.col-->
-{{--New Widgets End--}}
+            {{--New Widgets End--}}
                 <div class="clearfix"></div>
             <!-- Orders -->
             <div class="orders">
@@ -216,3 +215,8 @@
     <!-- /.site-footer -->
     {{-- end of Content Div--}}
 @endsection
+@section('scripts')
+    <script>
+        console.log("'{{$total}}'");
+    </script>
+    @endsection

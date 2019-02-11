@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Plan;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -39,7 +40,11 @@ class RefersController extends Controller
     {
         $this->middleware('guest');
     }
-
+//    public function showRegistrationForm()
+//    {
+//        $plans = Plan::all();
+//        return view('auth.register')->with('plans',$plans);
+//    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -60,9 +65,10 @@ class RefersController extends Controller
     public function showRegistrationForm($id)
     {
         $referees = User::find($id);
+        $plans = Plan::all();
         //$referees = User::all()->where('id', '=', $id);
 //        return view('auth.refers_register')->with('id',$id);
-        return view('auth.refers_register')->with('refrees',$referees);
+        return view('auth.refers_register')->with('refrees',$referees)->with('plans', $plans);
     }
 
     /**
@@ -71,23 +77,24 @@ class RefersController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-//    protected function create(array $data)
-//    {
-//        return User::create([
-//            'account_type' => $data['account_type'],
-//            'first_name' => $data['first_name'],
-//            'last_name' => $data['last_name'],
-//            'user_name' => $data['user_name'],
-//            'no_of_refers' => $data['refers_id'],
-//            'user_earning' => $data['user_earning'],
-//            'earning_of_refers' => $data['earning_of_refers'],
-//            'email' => $data['email'],
-//            'password' => Hash::make($data['password']),
-//            'cinic_no' => $data['cinic_no'],
-//            'jazz_cash_no' => $data['jazz_cash_no'],
-//            'country' => $data['country'],
-//            'state' => $data['state'],
-//            'city' => $data['city'],
-//        ]);
-//    }
+    protected function create(array $data)
+    {
+        dd($data);
+        return User::create([
+            'account_type' => $data['account_type'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'user_name' => $data['user_name'],
+            'no_of_refers' => $data['refers_id'],
+            'user_earning' => $data['user_earning'],
+            'earning_of_refers' => $data['earning_of_refers'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'cinic_no' => $data['cinic_no'],
+            'jazz_cash_no' => $data['jazz_cash_no'],
+            'country' => $data['country'],
+            'state' => $data['state'],
+            'city' => $data['city'],
+        ]);
+    }
 }

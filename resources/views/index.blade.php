@@ -235,7 +235,7 @@
                                       <p>0.9 Daily earning </p>
                                       <p>23.4 monthy earning </p>
                                       <p>1st,15 withdrew Day</p>
-                                      <a data-text="SIGN UP" class="button button-default" href="{{route('register')}}"><span>SIGN UP</span></a>
+                                      <a data-text="SIGN UP" class="button button-default" href="{{route('payment')}}"><span>SIGN UP</span></a>
                                   </div>
                               </li>
                               <li class="wow slideInUp">
@@ -249,7 +249,7 @@
                                       <p>1.9  Daily earning</p>
                                       <p>49.4  monthy earning</p>
                                       <p>1st,15 withdrew Day</p>
-                                      <a data-text="SIGN UP" class="button button-default" href="{{route('register')}}"><span>SIGN UP</span></a>
+                                      <a data-text="SIGN UP" class="button button-default" href="{{route('payment')}}"><span>SIGN UP</span></a>
                                   </div>
                               </li>
                               <li class="wow slideInUp">
@@ -264,7 +264,7 @@
                                       <p>3.5  Daily earning</p>
                                       <p>91  monthy earning</p>
                                       <p>1st,15 withdrew Day/p>
-                                      <a data-text="SIGN UP" class="button button-default" href="{{route('register')}}"><span>SIGN UP</span></a>
+                                      <a data-text="SIGN UP" class="button button-default" href="{{route('payment')}}"><span>SIGN UP</span></a>
                                   </div>
                               </li>
                               <li class="wow slideInUp">
@@ -279,7 +279,7 @@
                                       <p>For 5 Years</p>
                                       <p>Win Mobile and Laptop</p>
 
-                                      <a data-text="SIGN UP" class="button button-default" href="{{route('register')}}"><span>SIGN UP</span></a>
+                                      <a data-text="SIGN UP" class="button button-default" href="{{route('payment')}}"><span>SIGN UP</span></a>
                                   </div>
                               </li>
                           </ul>

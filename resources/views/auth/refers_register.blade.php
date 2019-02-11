@@ -17,18 +17,16 @@
                             <label for="account_type" class="col-md-4 col-form-label text-md-right">{{ __('Account Type') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control{{ $errors->has('account_type') ? ' is-invalid' : '' }}" name="account_type"  required autofocus id="account_type"
-                                        style="background-color:#1aff1a;" onChange="this.style.backgroundColor=this.options[this.selectedIndex].style.backgroundColor">
-                                    <option style="background-color:#1aff1a;" value="free">Free</option>
-                                    <option style="background-color:#cd7f32;"  value="bronze">Bronze</option>
-                                    <option style="background-color:#c0c0c0;" value="silver">Silver</option>
-                                    <option style="background-color:#ffd700;" value="gold">Gold</option>
+                                 <select class="form-control{{ $errors->has('plan_id') ? ' is-invalid' : '' }}" name="plan_id"  required autofocus id="plan_id">
+                                    @foreach($plans as $plan)
+                                    <option value="{{$plan->id}}">{{$plan->type}}</option>
+                                        @endforeach
                                 </select>
                                 {{--<input id="account_type" type="text" class="form-control{{ $errors->has('account_type') ? ' is-invalid' : '' }}" name="account_type" value="{{ old('first_name') }}" required autofocus>--}}
 
-                                @if ($errors->has('account_type'))
+                                @if ($errors->has('plan_id'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('account_type') }}</strong>
+                                        <strong>{{ $errors->first('plan_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -63,14 +61,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="user_name" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="user_name" type="text" class="form-control{{ $errors->has('user_name') ? ' is-invalid' : '' }}" name="user_name" value="{{ old('user_name') }}" required autofocus>
+                                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
-                                @if ($errors->has('user_name'))
+                                @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('user_name') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -89,13 +87,13 @@
                         </div>
                         {{--=================Hidden Inputs===============--}}
 
-                                <input id="earning_of_refers" type="hidden" class="form-control{{ $errors->has('earning_of_refers') ? ' is-invalid' : '' }}" name="earning_of_refers" value="{{ old('earning_of_refers') }}" autofocus>
+                                {{--<input id="earning_of_refers" type="hidden" class="form-control{{ $errors->has('earning_of_refers') ? ' is-invalid' : '' }}" name="earning_of_refers" value="{{ old('earning_of_refers') }}" autofocus>--}}
 
                                 {{--<input id="refers_id" type="hidden" class="form-control{{ $errors->has('refers_id') ? ' is-invalid' : '' }}" name="refers_id" value="{{$id}}"  autofocus>--}}
 
-                                <input id="user_earning" type="hidden" class="form-control{{ $errors->has('user_earning') ? ' is-invalid' : '' }}" name="user_earning" value="{{ old('user_earning') }}"  autofocus>
+                                {{--<input id="user_earning" type="hidden" class="form-control{{ $errors->has('user_earning') ? ' is-invalid' : '' }}" name="user_earning" value="{{ old('user_earning') }}"  autofocus>--}}
 
-                                <input id="account_balance" type="hidden" class="form-control{{ $errors->has('account_balance') ? ' is-invalid' : '' }}" name="account_balance" value="{{ old('account_balance') }}"  autofocus>
+                                {{--<input id="account_balance" type="hidden" class="form-control{{ $errors->has('account_balance') ? ' is-invalid' : '' }}" name="account_balance" value="{{ old('account_balance') }}"  autofocus>--}}
 
                         {{--=================Hidden Inputs Ends==========--}}
                         <div class="form-group row">
@@ -135,14 +133,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="cinic_no" class="col-md-4 col-form-label text-md-right">{{ __('CNIC No') }}</label>
+                            <label for="cnic" class="col-md-4 col-form-label text-md-right">{{ __('CNIC No') }}</label>
 
                             <div class="col-md-6">
-                                <input id="cinic_no" type="text" class="form-control{{ $errors->has('cinic_no') ? ' is-invalid' : '' }}" name="cinic_no" value="{{ old('cinic_no') }}" required autofocus>
+                                <input id="cnic" type="text" class="form-control{{ $errors->has('cnic') ? ' is-invalid' : '' }}" name="cnic" value="{{ old('cnic') }}" required autofocus>
 
-                                @if ($errors->has('cinic_no'))
+                                @if ($errors->has('cnic'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('cinic_no') }}</strong>
+                                        <strong>{{ $errors->first('cnic') }}</strong>
                                     </span>
                                 @endif
                             </div>
